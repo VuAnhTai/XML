@@ -7,17 +7,16 @@ function docDanhSachMatHang() {
   xuLyHTTP.send("")
   var chuoiXML = xuLyHTTP.responseText
   var duLieu = new DOMParser().parseFromString(chuoiXML, "text/xml").documentElement
-  var danhSachMatHang=duLieu.getElementsByTagName("Danh_sach_Mat_hang")[0]
+  var danhSachMatHang=duLieu.getElementsByTagName("Danh_sach_Tivi")[0]
   return danhSachMatHang
 }
 function taoChuoiHTMLDanhSachMatHang(danhSach) {
-  
   var diaChiMedia = "../Media"
   var thDanhSach = document.createElement("div")
   thDanhSach.className = "row"
 
-  for (var i = 0; i < danhSach.getElementsByTagName("Mat_hang").length; i++) {
-    var matHang = danhSach.getElementsByTagName("Mat_hang")[i]
+  for (var i = 0; i < danhSach.getElementsByTagName("Tivi").length; i++) {
+    var matHang = danhSach.getElementsByTagName("Tivi")[i]
     var ten = matHang.getAttribute("Ten")
     var maSo = matHang.getAttribute("Ma_so")
     var donGiaBan = parseInt(matHang.getAttribute("Don_gia_Ban"))  
@@ -29,7 +28,7 @@ function taoChuoiHTMLDanhSachMatHang(danhSach) {
     var thThongTin = document.createElement("div")
     thThongTin.className = `btn`
     thThongTin.style.cssText = `text-align:left`
-    thThongTin.innerHTML = `${Ten}
+    thThongTin.innerHTML = `${ten}
                     <br />Đơn giá Bán 
                     ${donGiaBan.toLocaleString("vi")}`
     var thMatHang = document.createElement("div")
