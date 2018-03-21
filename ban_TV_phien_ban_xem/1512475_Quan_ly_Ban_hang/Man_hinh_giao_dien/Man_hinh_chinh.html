@@ -37,11 +37,11 @@
         </div>
         </div>
         <div   class="btn btn-outline-primary" style="background-color:white;color:blue">
-            <a href="xem_So_luong_ton_Nhom.html">Xem Số lượng tồn Nhóm Tivi</a>
+            <a href="doanh_thu_Nhom.html">Xem doanh thu Nhóm Tivi</a>
         </div>   
     <div id="CUA_SO_THONG_BAO" style="background-color:rgb(255, 255, 255);margin:10px"  >
-
-        </div>
+    
+    </div>
     <div id="CUA_SO_KET_QUA" style="background-color:white;margin:10px"  >
 
     </div>
@@ -70,8 +70,9 @@ function Xu_ly_Khoi_dong() {
   var Chuoi_HTML_Danh_sach_Mat_hang=
   taoChuoiHTMLDanhSachTivi(Danh_sach_Mat_hang_Xem)
   
-  var Chuoi_HTML_Ket_qua=Chuoi_HTML_Danh_sach_Mat_hang
-  CUA_SO_KET_QUA.innerHTML=Chuoi_HTML_Ket_qua
+    var tongDoanhThu= "Tổng danh thu là:" + tinhTongDoanhThu(Danh_sach_Mat_hang)
+  CUA_SO_KET_QUA.innerHTML=tongDoanhThu + Chuoi_HTML_Danh_sach_Mat_hang
+ 
 }
 
 //*************** Biến Cố Yêu cầu Tra cứu  ************
@@ -84,10 +85,12 @@ function Xu_ly_Tra_cuu( ){
    var Chuoi_Tra_cuu=Th_Chuoi_Tra_cuu.value
    // Xử lý Tão Kết quả 
    Danh_sach_Mat_hang_Xem=traCuuTivi(Chuoi_Tra_cuu,Danh_sach_Mat_hang)
+
    // Kết xuất Kết quả 
    var Chuoi_HTML_Danh_sach_Mat_hang=
      taoChuoiHTMLDanhSachTivi(Danh_sach_Mat_hang_Xem)
-  
-  CUA_SO_KET_QUA.innerHTML=Chuoi_HTML_Danh_sach_Mat_hang
+
+   var Chuoi_HTML_Ket_qua=Chuoi_HTML_Danh_sach_Mat_hang
+  CUA_SO_KET_QUA.innerHTML=Chuoi_HTML_Ket_qua
 }
 </script>      
