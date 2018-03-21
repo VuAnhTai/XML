@@ -17,11 +17,14 @@ function taoChuoiHTMLDanhSachTivi(danhSach) {
 
   for (var i = 0; i < danhSach.getElementsByTagName("Tivi").length; i++) {
     var matHang = danhSach.getElementsByTagName("Tivi")[i]
-    console.log(matHang.childNodes[1].getAttribute("Ten"));
     var ten = matHang.getAttribute("Ten")
     var maSo = matHang.getAttribute("Ma_so")
     var donGiaBan = parseInt(matHang.getAttribute("Don_gia_Ban"))  
-    var soLuongTon = parseInt(matHang.getAttribute("So_luong_Ton"))  
+    var soLuongTon = matHang.getAttribute("So_luong_Ton")
+    if(soLuongTon == null)
+      soLuongTon = 0
+    else
+      soLuongTon = parseInt(soLuongTon)
     
     var thHinh = document.createElement("img")
     thHinh.src = `${diaChiMedia}/${maSo}.png`
@@ -30,18 +33,11 @@ function taoChuoiHTMLDanhSachTivi(danhSach) {
     var thThongTin = document.createElement("div")
     thThongTin.className = `btn`
     thThongTin.style.cssText = `text-align:left`
-    if(soLuongTon > 0){
-      thThongTin.innerHTML = `${ten}
+    thThongTin.innerHTML = `${ten}
                     <br />Đơn giá Bán 
                     ${donGiaBan.toLocaleString("vi")}
-                    <br />Còn hàng`
-    }
-    else{
-      thThongTin.innerHTML = `${ten}
-                    <br />Đơn giá Bán 
-                    ${donGiaBan.toLocaleString("vi")}
-                    <br />Hết hàng`
-    }
+                    <br />Sô lượng tồn:
+                    ${soLuongTon}`
     var thMatHang = document.createElement("div")
     thMatHang.className = `col-md-3`
     thMatHang.style.cssText = `margin-bottom:10px`
