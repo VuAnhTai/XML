@@ -65,11 +65,11 @@ var Danh_sach_Mat_hang=[]
 var Danh_sach_Mat_hang_Xem=[]
 //*************** Biến Cố Khởi động  ************
 function Xu_ly_Khoi_dong() {
-  Danh_sach_Mat_hang=docDanhSachMatHang()
+  Danh_sach_Mat_hang=docDanhSachTivi()
   Danh_sach_Mat_hang_Xem=Danh_sach_Mat_hang
 
   var Chuoi_HTML_Danh_sach_Mat_hang=
-  taoChuoiHTMLDanhSachMatHang(Danh_sach_Mat_hang_Xem)
+  taoChuoiHTMLDanhSachTivi(Danh_sach_Mat_hang_Xem)
  var Chuoi_HTML_Thong_bao="<div style='color:blue;font-size:2em' >Lưu ý Phiên bản này chỉ thay đổi duy nhất Hám Đọc Dữ liệu so với Phiên bản trước</div>"
   
   var Chuoi_HTML_Ket_qua=Chuoi_HTML_Thong_bao  +Chuoi_HTML_Danh_sach_Mat_hang
@@ -85,10 +85,10 @@ function Xu_ly_Tra_cuu( ){
    // Nhập liệu
    var Chuoi_Tra_cuu=Th_Chuoi_Tra_cuu.value
    // Xử lý Tão Kết quả 
-   Danh_sach_Mat_hang_Xem=Tra_cuu_Mat_hang(Chuoi_Tra_cuu,Danh_sach_Mat_hang)
+   Danh_sach_Mat_hang_Xem=traCuuTivi(Chuoi_Tra_cuu,Danh_sach_Mat_hang)
    // Kết xuất Kết quả 
    var Chuoi_HTML_Danh_sach_Mat_hang=
-     Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach_Mat_hang_Xem)
+     taoChuoiHTMLDanhSachTivi(Danh_sach_Mat_hang_Xem)
   
   CUA_SO_KET_QUA.innerHTML=Chuoi_HTML_Danh_sach_Mat_hang
 }
