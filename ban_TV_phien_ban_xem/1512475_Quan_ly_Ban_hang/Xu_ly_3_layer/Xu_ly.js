@@ -18,7 +18,7 @@ function tinhDoanhThuTivi(Tivi){
     var tien = banHang[i].getAttribute('Tien')
     doanhThu +=parseInt(tien)
   }
-  return tien
+  return doanhThu
 }
 
 function tinhTongDoanhThu(danhSach){
@@ -42,7 +42,7 @@ function taoChuoiHTMLDanhSachTivi(danhSach) {
     var ten = Tivi.getAttribute("Ten")
     var maSo = Tivi.getAttribute("Ma_so")
     var donGiaBan = parseInt(Tivi.getAttribute("Don_gia_Ban"))  
-    var tien = parseInt(tinhDoanhThuTivi(Tivi))
+    var tien = parseFloat(tinhDoanhThuTivi(Tivi))
 
     var thHinh = document.createElement("img")
     thHinh.src = `${diaChiMedia}/${maSo}.png`

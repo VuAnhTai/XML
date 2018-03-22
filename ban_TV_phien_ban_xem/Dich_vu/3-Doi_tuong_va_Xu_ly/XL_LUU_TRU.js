@@ -1,5 +1,7 @@
 var file = require("fs")
-var duongDanThuMucDuLieu="../2-Du_lieu_Luu_tru"
+var duongDanThuMucDuLieu="..//2-Du_lieu_Luu_tru"
+var duongDanThuMucMedia="..//Media"
+
 var DOMParser=require("xmldom").DOMParser
 var XMLSerializer=require("xmldom").XMLSerializer
  
@@ -11,7 +13,11 @@ class XL_LUU_TRU{
     
     return duLieu
   }
-   
+  docMedia(tenTapTin){ 
+    var duongDanTapTin =duongDanThuMucMedia +"//" + tenTapTin
+    var nhiPhan=file.readFileSync(duongDanTapTin)
+    return nhiPhan
+  }
  
 }
 //=============================

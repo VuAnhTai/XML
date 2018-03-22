@@ -1,5 +1,8 @@
+var diaChiDichVu = "http://localhost:1000"
+var diaChiMedia=`${diaChiDichVu}/Media`
+ 
 function docDanhSachTivi() { 
-  var diaChiDichVu="http://localhost:1000"
+  // var diaChiDichVu="http://localhost:1000"
   var thamSo="maSoXuLy=Doc_Du_lieu"
   var diaChiXuLy=`${diaChiDichVu}?${thamSo}`
   var xuLyHTTP = new XMLHttpRequest()
@@ -11,7 +14,6 @@ function docDanhSachTivi() {
   return danhSachMatHang
 }
 function taoChuoiHTMLDanhSachTivi(danhSach) {
-  var diaChiMedia = "../Media"
   var thDanhSach = document.createElement("div")
   thDanhSach.className = "row"
 

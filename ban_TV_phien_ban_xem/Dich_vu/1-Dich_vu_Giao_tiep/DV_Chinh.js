@@ -11,28 +11,30 @@ var dichVu = nodeJSDichVu.createServer((req, res) =>
 {
   var chuoiNhan = "" 
   var diaChiXuLy = req.url.replace("/","")
-  var thamSo = xuLyThamSo.parse(diaChiXuLy.replace("?",""))
-  var maSoXuLy=thamSo.maSoXuLy
-  var chuoiKQ=""
+  
   req.on('data', (chunk) => {chuoiNhan += chunk})
   req.on('end', () => {
-    if (maSoXuLy=="Doc_Du_lieu"){
-      chuoiKQ=new XMLSerializer().serializeToString(duLieu) 
-    }
-    else if (maSoXuLy="..."){
-      chuoiKQ="...."
+    if (diaChiXuLy.startsWith("Media")){
+      var tenTapTin=diaChiXuLy.replace("Media/","")
+      var NhiPhanKQ=luuTru.docMedia(tenTapTin)
+      res.writeHead(200, {'Content-Type': 'image/png' });       
+      res.end(NhiPhanKQ,'binary');
     }
     else {
-      chuoiKQ="Không có Mã số Xử lý "+  maSoXuLy + " này"
+      var thamSo = xuLyThamSo.parse(diaChiXuLy.replace("?",""))
+      var maSoXuLy=thamSo.maSoXuLy
+      var chuoiKQ=""
+      if (maSoXuLy=="Doc_Du_lieu"){
+        chuoiKQ=new XMLSerializer().serializeToString(duLieu) 
+      }
+      // else {
+      //   chuoiKQ="Không có Mã số Xử lý "+  maSoXuLy + " này"
+      // }
+      res.setHeader("Access-Control-Allow-Origin", '*')
+      res.end(chuoiKQ); 
     }
-
-    res.setHeader("Access-Control-Allow-Origin", '*')
-    res.end(chuoiKQ); 
-
-   
-    
   })
-
+  
 })
 
 dichVu.listen(port);
