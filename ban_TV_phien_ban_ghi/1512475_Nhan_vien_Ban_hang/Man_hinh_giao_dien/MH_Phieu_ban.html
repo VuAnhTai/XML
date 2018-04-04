@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Phiếu bán</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+      
+    <!-- Optional JavaScript -->
+    
+
+    <div class="container-fluid">
+        <h1>Phiếu bán</h1>
+        <button style="float:right"type="button" class="btn btn-success" id="back">Trở về</button>
+      </br>
+    <form name="mainForm">
+        <div class="form-group">
+            <label for="name">Họ Tên</label>
+            <input type="text" class="form-control" name="name">
+          </div>
+        <div class="form-group">
+          <label for="date">Ngày</label>
+          <input type="date" class="form-control" name="date">
+        </div>       
+        <div class="form-group">
+          <label for="nameTivi">Tổng doanh thu</label>
+          <input type="number" class="form-control" name="totalRevenue">
+        </div>
+        
+        <div id="subForm" class="row col-md-12">
+          <div class="form-group row col-md-12">
+            <label class="col-md-1" for="nameTivi">STT</label>
+            <label class="col-md-3" for="nameTivi">Tivi</label>
+            <label class="col-md-3" for="cost">Đơn giá</label>
+            <label class="col-md-2" for="quantity">Số lượng</label>
+            <label class="col-md-3" for="totalRevenueTivi">Tiền</label>
+          </div>
+          <div class="form-group row col-md-12" id="containInputSubForm">
+            <div class="inputSubForm form-group row col-md-12">
+              <div class="col-md-1">1</div>
+              <div class="col-md-3"> 
+                <input type="text" class="form-control" name="nameTivi"> 
+              </div>
+              <div class="col-md-3"> 
+                <input type="number" class="form-control" name="cost"> 
+              </div>
+              <div class="col-md-2"> 
+                <input type="number" class="form-control" name="quantity"> 
+              </div>
+              <div class="col-md-3"> 
+                  <input type="number" class="form-control" name="totalRevenueTivi"> 
+              </div>  
+            </div>
+          </div>
+        </div>
+        <div onclick="createInputSubForm()" class="btn btn-primary" id="add">Thêm</div>
+        <br>
+        <br>
+        <button  class="btn btn-primary" id="xong">Submit</button>
+  </form>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        var i=2;
+        var createInputSubForm = function(){
+          var containInputSubForm = document.getElementById('containInputSubForm')
+          var inputSubForm = document.createElement('div')
+          inputSubForm.className= 'inputSubForm form-group row col-md-12'
+          var STT = '<div class="col-md-1">' + i++ +' </div>'
+          var name = '<div class="col-md-3"> <input type="text" class="form-control" name="nameTivi"> </div>'
+          var cost = '<div class="col-md-3"> <input type="number" class="form-control" name="cost"> </div>'
+          var quantity = '<div class="col-md-2"> <input type="number" class="form-control" name="quantity"> </div>'
+          var totalRevenue = '<div class="col-md-3"> <input type="number" class="form-control" name="totalRevenueTivi"> </div>'
+
+          inputSubForm.innerHTML = STT + name + cost + quantity + totalRevenue
+           // inputSubForm.innerHTML = "hello"
+          
+
+          containInputSubForm.appendChild(inputSubForm);
+          
+        }
+        xong.onclick=()=>{
+          var name = document.forms[0].name.value
+          var date = document.forms[0].date.value
+          var totalRevenue = document.forms[0].totalRevenue.value
+          console.log(name + date + totalRevenue);
+          var listTiviSold = document.getElementsByClassName('inputSubForm')
+          for(var i = 0; i < listTiviSold.length; i++){
+            var nameTV = listTiviSold[i].getElementsByTagName('input')[0].value;
+            var cost = listTiviSold[i].getElementsByTagName('input')[1].value;
+            var quantity = listTiviSold[i].getElementsByTagName('input')[2].value;
+            var totalRevenueTivi = listTiviSold[i].getElementsByTagName('input')[3].value;
+            console.log(nameTV + cost + quantity + totalRevenueTivi);
+          }
+          console.log('hello');
+          alert("Nhập phiếu thành công !!!")
+
+        }
+        back.onclick=()=>{
+
+        window.location.href="Man_hinh_chinh.html"
+        } 
+        
+    </script>
+</body>
+</html>

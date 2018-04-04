@@ -1,5 +1,7 @@
+var diaChiDichVu="http://localhost:1000"
+var diaChiMedia=`${diaChiDichVu}/Media`
+
 function docDanhSachTivi() { 
-  var diaChiDichVu="http://localhost:1000"
   var thamSo="maSoXuLy=Doc_Du_lieu"
   var diaChiXuLy=`${diaChiDichVu}?${thamSo}`
   var xuLyHTTP = new XMLHttpRequest()
@@ -32,7 +34,6 @@ function tinhTongDoanhThu(danhSach){
   return  tongDoanhThu.toLocaleString("vi")
 }
 function taoChuoiHTMLDanhSachTivi(danhSach) {
-  var diaChiMedia = "../Media"
   var thDanhSach = document.createElement("div")
   
   thDanhSach.className = "row"

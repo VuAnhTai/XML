@@ -14,7 +14,7 @@ function docDanhSachTivi() {
   return danhSachMatHang
 }
 function taoChuoiHTMLDanhSachTivi(danhSach) {
-  var diaChiMedia = "../Media"
+  
   var thDanhSach = document.createElement("div")
   thDanhSach.className = "row"
 
